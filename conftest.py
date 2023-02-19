@@ -1,5 +1,6 @@
 import pytest
 from modules.api.clients.github import GitHub
+from modules.api.clients.discogs import Discogs
 
 
 class User:
@@ -30,4 +31,10 @@ def user():
 @pytest.fixture
 def github_api():
     api = GitHub()
+    yield api
+
+
+@pytest.fixture
+def discogs_api():
+    api = Discogs()
     yield api
